@@ -1,0 +1,26 @@
+{
+  "name": "mern-journal",
+  "version": "1.0.0",
+  "description": "![Application Logo](./assets/MERNJournal-1.png)",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "develop": "concurrently \"cd server && npm run start\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "build": "cd client && npm run build"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^5.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Olloyd321/Group-4-Temp.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Olloyd321/Group-4-Temp/issues"
+  },
+  "homepage": "https://github.com/Olloyd321/Group-4-Temp#readme"
+}
