@@ -11,9 +11,9 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Navbar from "./components/Navbar/index.js";
-import SingleEntry from "./components/SingleEntry/index.js";
-import Notes from "./components/pages/index.js";
+import LandingPage from "./pages/LandingPage/index.js";
+import EditEntry from "./pages/EditEntry/index.js";
+import Profile from "./pages/Profile/index.js";
 
 
 const httpLink = createHttpLink({
@@ -41,16 +41,18 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <Routes>
-          <Route path='/' element={<Navbar />} />
-          <Route path='/homepage' element={<Notes />} />
+        <div className="container">
+          <Routes>
+            <Route path='/' element={<LandingPage />} />
+            <Route path='/homepage' element={<Profile />} />
 
-          <Route 
-                path="/entry/:entryId"
-                element={<SingleEntry />}
-              />
+            <Route 
+                  path="/entry/:entryId"
+                  element={<EditEntry />}
+                />
 
-        </Routes>
+          </Routes>
+        </div>
       </Router>
     </ApolloProvider>
   );
