@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';	
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
+import { Navbar, Nav, Container, Modal, Tab, Button } from 'react-bootstrap';
 import LoginForm from '../../components/LoginForm';
 import SignupForm from '../../components/SignupForm'
 import Auth from '../../utils/auth.js';
@@ -15,18 +15,25 @@ const LandingPage = () => {
   const handleAddNotesClick = () => {	
     navigate('/homepage');	
   };
+      // <header className='code'>
+      //   <h1 className="landing-header">MERNJournal</h1>
+      //   <h2 className="landing-subheader">your personal e-journal</h2>
+      // </header>
 
   return (
     <>
-      <header className='code'>
-        <h1 className="landing-header">MERNJournal</h1>
-        <h2 className="landing-subheader">your personal e-journal</h2>
-      </header>
-      <div className="landing-container">
-        <div className="landing-content">
-          <button className="nav-button" onClick={() => setShowModal(true)}>Login / Sign Up</button>
-        </div>
-      </div>
+    <Navbar bg="dark" variant="dark">
+        <Navbar.Brand href="#home">MERNJournal</Navbar.Brand>
+        <Navbar.Text className="m-auto">
+          your personal e-journal
+        </Navbar.Text>
+    </Navbar>
+
+      
+      <Button variant="dark" onClick={() => setShowModal(true)}>
+        Login / Sign Up
+      </Button>
+       
       <Modal
         size="lg"
         show={showModal}
@@ -65,7 +72,6 @@ const LandingPage = () => {
       </Modal>
     </>
   );
-
 };
 
 export default LandingPage;
