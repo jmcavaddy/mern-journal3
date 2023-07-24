@@ -41,18 +41,14 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="container">
           <Routes>
             <Route path='/' element={<LandingPage />} />
             <Route path='/homepage' element={<Profile />} />
-
             <Route 
                   path="/entry/:entryId"
                   element={<EditEntry />}
                 />
-
           </Routes>
-        </div>
       </Router>
     </ApolloProvider>
   );
