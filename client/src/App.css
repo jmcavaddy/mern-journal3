@@ -40,3 +40,13 @@
     transform: rotate(360deg);
   }
 }
+
+/* Found from https://stackoverflow.com/questions/4617872/white-space-showing-up-on-right-side-of-page-when-background-image-should-extend
+while searching for solution to white space on right side of webpage */
+html,body
+{
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
