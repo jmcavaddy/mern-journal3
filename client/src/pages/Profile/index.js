@@ -55,34 +55,34 @@ import Auth from '../../utils/auth';
     );
   }
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormState({ ...formState, [name]: value });
-  };
+  // const handleInputChange = (event) => {
+  //   const { name, value } = event.target;
+  //   setFormState({ ...formState, [name]: value });
+  // };
 
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
+  // const handleFormSubmit = async (event) => {
+  //   event.preventDefault();
 
-    try {
+  //   try {
 
-      const { data } = await addEntry({
-        variables: { ...formState },	
-      });
+  //     const { data } = await addEntry({
+  //       variables: { ...formState },	
+  //     });
 
-      setUserData((userData) => ({
-        ...userData,
-        entries: [...userData.entries, data.addEntry],
-      }));
+  //     setUserData((userData) => ({
+  //       ...userData,
+  //       entries: [...userData.entries, data.addEntry],
+  //     }));
 
-      setFormState({
-        entryTitle: '',
-        entryContent: '',
-      });
+  //     setFormState({
+  //       entryTitle: '',
+  //       entryContent: '',
+  //     });
 
-    } catch (e) {
-      console.error(e);
-    }
-  };
+  //   } catch (e) {
+  //     console.error(e);
+  //   }
+  // };
 
   if (!userDataLength) {
     return <div>Loading...</div>;
@@ -94,6 +94,8 @@ import Auth from '../../utils/auth';
           <Navbar.Text className='m-2'>MERNJournal</Navbar.Text>
           <Button className='ms-auto m-2' variant='danger' onClick={Auth.logout}>Logout</Button>
       </Navbar>
+
+      <Button variant="dark">add an entry</Button>
 
       <h1 className="my-4 text-center code">saved entries</h1>
 

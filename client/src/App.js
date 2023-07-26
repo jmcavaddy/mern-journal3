@@ -13,7 +13,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 import LandingPage from "./pages/LandingPage/index.js";
-import EditEntry from "./pages/EditEntry/index.js";
+import SingleEntry from "./pages/SingleEntry/index.js";
 import Profile from "./pages/Profile/index.js";
 
 
@@ -48,7 +48,7 @@ function App() {
             <Route path='/homepage' element={<Profile />} />
             <Route 
                   path="/entry/:entryId"
-                  element={<EditEntry />}
+                  element={<SingleEntry />}
                 />
           </Routes>
       </Router>
