@@ -9,10 +9,13 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 import LandingPage from "./pages/LandingPage/index.js";
 import EditEntry from "./pages/EditEntry/index.js";
 import Profile from "./pages/Profile/index.js";
+
 
 
 const httpLink = createHttpLink({

@@ -1,13 +1,12 @@
 
 import React, { useEffect, useState } from "react";
-import { Card } from "react-bootstrap";
+import { Card, Button, Navbar, Container } from "react-bootstrap";
 
 import { useQuery, useMutation } from "@apollo/client";
 import "../../App";
 import { QUERY_ME } from '../../utils/queries';
 import { REMOVE_ENTRY, ADD_ENTRY } from "../../utils/mutations";
 import Auth from '../../utils/auth';
-import background from "../../images/robo1.jpg";
 
   const Notes = () => {
   const { loading, data } = useQuery(QUERY_ME);
@@ -90,60 +89,15 @@ import background from "../../images/robo1.jpg";
   }
 
   return (
-    <div style={{ background: `linear-gradient(
-      to left, rgba(255,0,0,0), rgba(13,62,51,0.35)),url(${background})`, height: "100vh", width: "100%",}}>
-    <div className="container">
-      <div className="row justify-content">
-        <div className="col-md-10">
-          <div>
-            <button style={{ float: "right" }} onClick={Auth.logout}>Logout</button>
-          </div>
-          <div>
-            <h1 className="my-4 text-center"style={{ color: "white" }}>My Entries</h1>
-            <form
-              style={{
-                border: "2px solid blue",
-                borderRadius: "10px",
-                padding: "30px",
-                fontWeight: "bold",
-                
-              }}
-              onSubmit={handleFormSubmit}
-              >
-              <div className="mb-3">
-                <label htmlFor="Title" className="form-label" style={{ color: "white" }}>
-                  Entry Title
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="title"
-                  aria-describedby="titleHelp"
-                  placeholder="Entry Title"
-                  onChange={handleInputChange}
-                  name='entryTitle'
-                  value={formState.entryTitle}
-                />
-              </div>
-              <div className="mb-3">
-                <label htmlFor="Note" className="form-label" style={{ color: "white" }}>
-                  Entry
-                </label>
-                <textarea
-                  type="text"
-                  className="form-control"
-                  id="Note"
-                  placeholder="Entry Content"
-                  onChange={handleInputChange}
-                  name='entryContent'
-                  value={formState.entryContent}
-                ></textarea>
-              </div>
+    <>
+        <Navbar bg="dark" data-bs-theme="dark" className="code">
+            <Navbar.Text className='m-2'>MERNJournal</Navbar.Text>
+            <Button className='ms-auto m-2' variant='danger' onClick={Auth.logout}>Logout</Button>
+        </Navbar>
 
-              <button type="submit" className="btn btn-primary">
-                Submit
-              </button>
-            </form>
+          <div>
+            <h1 className="my-4 text-center code">saved entries</h1>
+
             <div>
               <div className="my-4 mynotes row">
                 {userData.entries.map((entry) => {
@@ -166,10 +120,7 @@ import background from "../../images/robo1.jpg";
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-    </div>
+    </>
   );
 };
 
