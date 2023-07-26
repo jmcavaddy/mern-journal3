@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from "react";
-import { Card, Button, Navbar, Container } from "react-bootstrap";
+import { Card, Button, Navbar, Container, Row, Col } from "react-bootstrap";
 
 import { useQuery, useMutation } from "@apollo/client";
 import "../../App";
@@ -90,36 +90,36 @@ import Auth from '../../utils/auth';
 
   return (
     <>
-        <Navbar bg="dark" data-bs-theme="dark" className="code">
-            <Navbar.Text className='m-2'>MERNJournal</Navbar.Text>
-            <Button className='ms-auto m-2' variant='danger' onClick={Auth.logout}>Logout</Button>
-        </Navbar>
+      <Navbar bg="dark" data-bs-theme="dark" className="code">
+          <Navbar.Text className='m-2'>MERNJournal</Navbar.Text>
+          <Button className='ms-auto m-2' variant='danger' onClick={Auth.logout}>Logout</Button>
+      </Navbar>
 
-          <div>
-            <h1 className="my-4 text-center code">saved entries</h1>
+      <h1 className="my-4 text-center code">saved entries</h1>
 
-            <div>
-              <div className="my-4 mynotes row">
-                {userData.entries.map((entry) => {
-                  return (
-                      <Card key={entry._id} className="card mx-2" style={{ width: "18rem", backgroundColor: "lavender", padding: "5px", margin: "5px" }}>
-                      <Card.Body>
-                        <Card.Title>{entry.entryTitle}</Card.Title>
-                        <Card.Subtitle className="mb-1 text-muted">
-                        {entry.createdAt}
-                        </Card.Subtitle>
-                        <Card.Text>
-                          {entry.entryContent}
-                        </Card.Text>
-                        <Card.Link href={`/entry/${entry._id}`}>Edit</Card.Link>
-                        <Card.Link href="#" onClick={() => handleDelete(entry._id)}>Delete</Card.Link>
-                      </Card.Body>
-                    </Card>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
+      <Container className="code">
+        <Row>
+          <Col lg="{true}">
+            {userData.entries.map((entry) => {
+              return (
+                  <Card key={entry._id} className="card mx-2" style={{ width: "18rem", backgroundColor: "lavender", padding: "5px", margin: "5px" }}>
+                  <Card.Body>
+                    <Card.Title>{entry.entryTitle}</Card.Title>
+                    <Card.Subtitle className="mb-1 text-muted">
+                    {entry.createdAt}
+                    </Card.Subtitle>
+                    <Card.Text>
+                      {entry.entryContent}
+                    </Card.Text>
+                    <Card.Link href={`/entry/${entry._id}`}>Edit</Card.Link>
+                    <Card.Link href="#" onClick={() => handleDelete(entry._id)}>Delete</Card.Link>
+                  </Card.Body>
+                </Card>
+              );
+            })}
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 };
