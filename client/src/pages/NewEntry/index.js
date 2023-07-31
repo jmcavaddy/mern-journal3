@@ -2,10 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import { ADD_ENTRY } from "../../utils/mutations";
 import { QUERY_ME } from '../../utils/queries';
+import { useNavigate } from 'react-router-dom';
+
 
 const CreateNote = () => {
   const [addEntry, { error }] = useMutation(ADD_ENTRY);
   const { loading, data } = useQuery(QUERY_ME);
+  const navigate = useNavigate();
+
   
   const [formState, setFormState] = useState({ entryTitle: '', entryContent: '' });
   const [userData, setUserData] = useState({});
@@ -53,7 +57,7 @@ const CreateNote = () => {
       console.error(e);
     }
 
-    window.location.reload();
+    navigate(`/homepage`);
   };
 
 

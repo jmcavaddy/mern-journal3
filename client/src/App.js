@@ -15,6 +15,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import LandingPage from "./pages/LandingPage/index.js";
 import SingleEntry from "./pages/SingleEntry/index.js";
 import Profile from "./pages/Profile/index.js";
+import NewEntry from "./pages/NewEntry/index.js";
 
 
 
@@ -50,6 +51,8 @@ function App() {
                   path="/entry/:entryId"
                   element={<SingleEntry />}
                 />
+            <Route path='/newentry' element={<NewEntry />} />
+            <Route path='*' element={<LandingPage />} />
           </Routes>
       </Router>
     </ApolloProvider>

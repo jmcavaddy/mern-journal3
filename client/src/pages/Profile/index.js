@@ -55,35 +55,6 @@ import Auth from '../../utils/auth';
     );
   }
 
-  // const handleInputChange = (event) => {
-  //   const { name, value } = event.target;
-  //   setFormState({ ...formState, [name]: value });
-  // };
-
-  // const handleFormSubmit = async (event) => {
-  //   event.preventDefault();
-
-  //   try {
-
-  //     const { data } = await addEntry({
-  //       variables: { ...formState },	
-  //     });
-
-  //     setUserData((userData) => ({
-  //       ...userData,
-  //       entries: [...userData.entries, data.addEntry],
-  //     }));
-
-  //     setFormState({
-  //       entryTitle: '',
-  //       entryContent: '',
-  //     });
-
-  //   } catch (e) {
-  //     console.error(e);
-  //   }
-  // };
-
   if (!userDataLength) {
     return <div>Loading...</div>;
   }
@@ -95,7 +66,7 @@ import Auth from '../../utils/auth';
           <Button className='ms-auto m-2' variant='danger' onClick={Auth.logout}>Logout</Button>
       </Navbar>
 
-      <Button variant="dark">add an entry</Button>
+      <Button className="m-2" variant="primary" href="/newentry">New Entry</Button>
 
       <h1 className="my-4 text-center code">saved entries</h1>
 
