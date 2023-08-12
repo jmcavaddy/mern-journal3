@@ -59,6 +59,8 @@ import Auth from '../../utils/auth';
     return <div>Loading...</div>;
   }
 
+  console.log(window.location)
+
   return (
     <>
       <Navbar bg="dark" data-bs-theme="dark" className="code">
@@ -66,7 +68,7 @@ import Auth from '../../utils/auth';
           <Button className='ms-auto m-2' variant='danger' onClick={Auth.logout}>Logout</Button>
       </Navbar>
 
-      <Button className="m-2" variant="primary" href="/newentry">New Entry</Button>
+      <Button className="m-2 code" variant="primary" href="/newentry">New Entry</Button>
 
       <h1 className="my-4 text-center code">saved entries</h1>
 

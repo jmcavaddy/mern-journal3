@@ -18,7 +18,6 @@ import Profile from "./pages/Profile/index.js";
 import NewEntry from "./pages/NewEntry/index.js";
 
 
-
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
@@ -44,16 +43,16 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-          <Routes>
-            <Route path='/' element={<LandingPage />} />
-            <Route path='/homepage' element={<Profile />} />
-            <Route 
-                  path="/entry/:entryId"
-                  element={<SingleEntry />}
-                />
-            <Route path='/newentry' element={<NewEntry />} />
-            <Route path='*' element={<LandingPage />} />
-          </Routes>
+        <Routes>
+          <Route path='/' element={<LandingPage />} />
+          <Route path='/homepage' element={<Profile />} />
+          <Route 
+                path="/entry/:entryId"
+                element={<SingleEntry />}
+              />
+          <Route path='/newentry' element={<NewEntry />} />
+          <Route path='*' element={<LandingPage />} />
+        </Routes>
       </Router>
     </ApolloProvider>
   );

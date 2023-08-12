@@ -9,20 +9,19 @@ import Auth from '../../utils/auth.js';
 const LandingPage = () => {
   const [showModal, setShowModal] = useState(false);
 
-  const navigate = useNavigate();	
-  const handleAddNotesClick = () => {	
-    navigate('/homepage');	
-  };
+  // const navigate = useNavigate();	
+  // const handleAddNotesClick = () => {	
+  //   navigate('/homepage');	
+  // };
 
   return (
     <>
-    <Navbar bg="dark" data-bs-theme="dark">
-        <Navbar.Brand href="#home" className='code'>MERNJournal</Navbar.Brand>
-        <Navbar.Text className="m-auto code">
-          your personal e-journal
-        </Navbar.Text>
-    </Navbar>
-
+        <Navbar bg="dark" data-bs-theme="dark">
+            <Navbar.Brand href="#home" className='code'>MERNJournal</Navbar.Brand>
+            <Navbar.Text className="m-auto code">
+              your personal e-journal
+            </Navbar.Text>
+        </Navbar>
       
       <Button className='code' variant="dark" onClick={() => setShowModal(true)}>
         Login / Sign Up
