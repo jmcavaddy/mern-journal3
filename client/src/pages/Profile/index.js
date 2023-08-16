@@ -47,12 +47,20 @@ import Auth from '../../utils/auth';
 
   };
 
-  // TODO: add button here to navigate to landing page
   if (!userData || !userData.username) {
     return (
-      <h4>
-        You need to be logged in to see this. Use the navigation links above to sign up or log in!
-      </h4>
+      <>
+        <Navbar bg="dark" data-bs-theme="dark" className='p-3'>
+          <Navbar.Brand href="#home" className='code'>MERNJournal</Navbar.Brand>
+          <Navbar.Text className="ms-auto code">
+            your personal e-journal
+          </Navbar.Text>
+        </Navbar>
+        <h4 className="text-center">
+          There is not a user logged in:
+          {/* TODO: add a button here that directs user to landing page */}
+        </h4>
+      </>
     );
   }
 
@@ -60,35 +68,42 @@ import Auth from '../../utils/auth';
     return <div>Loading...</div>;
   }
 
-  // TODO: style saved entries so they are centered and have space around them; 1 column on mobile, 2 on tablet, 3 on desktop
+  // TODO: style saved entries so they are centered on mobile
 
   return (
     <>
-      <Button className="m-2 code" variant="primary" href="/newentry">New Entry</Button>
+      <Navbar bg="dark" data-bs-theme="dark" className="code">
+        <Navbar.Text className='m-2'>MERNJournal</Navbar.Text>
+        <Button className='ms-auto m-2' variant='danger' onClick={Auth.logout}>Logout</Button>
+      </Navbar>
+
+      <div className="container flex-column justify-center align-center text-center p-3 code">
+        <Button className="m-2 code" variant="dark" href="/newentry">new entry</Button>
+      </div>
 
       <h1 className="my-4 text-center code">saved entries</h1>
 
-      <Container className="code">
+      <Container fluid>
         <Row>
-          <Col>
             {userData.entries.map((entry) => {
               return (
-                  <Card key={entry._id} className="card mx-2" style={{ width: "18rem", backgroundColor: "lavender", padding: "5px", margin: "5px" }}>
-                  <Card.Body>
-                    <Card.Title>{entry.entryTitle}</Card.Title>
-                    <Card.Subtitle className="mb-1 text-muted">
-                    {entry.createdAt}
-                    </Card.Subtitle>
-                    <Card.Text>
-                      {entry.entryContent}
-                    </Card.Text>
-                    <Card.Link href={`/entry/${entry._id}`}>Edit</Card.Link>
-                    <Card.Link href="#" onClick={() => handleDelete(entry._id)}>Delete</Card.Link>
-                  </Card.Body>
-                </Card>
+                <Col key={entry._id} xs={12} md={6} lg={4}>
+                  <Card  className="card mx-2" style={{ width: "18rem", backgroundColor: "lavender", padding: "0.5rem", margin: "0.5rem" }}>
+                    <Card.Body>
+                      <Card.Title>{entry.entryTitle}</Card.Title>
+                      <Card.Subtitle className="mb-1 text-muted">
+                      {entry.createdAt}
+                      </Card.Subtitle>
+                      <Card.Text>
+                        {entry.entryContent}
+                      </Card.Text>
+                      <Card.Link href={`/entry/${entry._id}`}>Edit</Card.Link>
+                      <Card.Link href="#" onClick={() => handleDelete(entry._id)}>Delete</Card.Link>
+                    </Card.Body>
+                  </Card>
+                </Col>
               );
             })}
-          </Col>
         </Row>
       </Container>
     </>

@@ -3,6 +3,8 @@ import { useMutation, useQuery } from '@apollo/client';
 import { ADD_ENTRY } from "../../utils/mutations";
 import { QUERY_ME } from '../../utils/queries';
 import { useNavigate } from 'react-router-dom';
+import { Navbar, Button } from 'react-bootstrap';
+import Auth from '../../utils/auth.js';
 
 
 const CreateNote = () => {
@@ -62,46 +64,48 @@ const CreateNote = () => {
 
 
   return (
-    <form
-    style={{
-      border: "2px solid blue",
-      borderRadius: "10px",
-      padding: "30px",
-    }}
-    onSubmit={handleFormSubmit}
-    >
-    <div className="mb-3">
-      <label htmlFor="Title" className="form-label">
-        Entry Title
-      </label>
-      <input
-        type="text"
-        className="form-control"
-        id="title"
-        aria-describedby="titleHelp"
-        placeholder="Entry Title"
-        onChange={handleInputChange}
-        name='entryTitle'
-      />
-    </div>
-    <div className="mb-3">
-      <label htmlFor="Note" className="form-label">
-        Entry
-      </label>
-      <textarea
-        type="text"
-        className="form-control"
-        id="Note"
-        placeholder="Entry Content"
-        onChange={handleInputChange}
-        name='entryContent'
-      ></textarea>
-    </div>
+    <>
+      <Navbar bg="dark" data-bs-theme="dark" className="code">
+        <Navbar.Text className='m-2'>MERNJournal</Navbar.Text>
+        <Button className='ms-auto m-2' variant='danger' onClick={Auth.logout}>Logout</Button>
+      </Navbar>
+      <h4 className="text-center code">Create a New Entry</h4>
+      
+        <form onSubmit={handleFormSubmit} className="container code flex-column justify-content-center align-items-center" >
+          <div className="mb-3 code">
+            <label htmlFor="Title" className="form-label">
+              Entry Title
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="title"
+              aria-describedby="titleHelp"
+              placeholder="Entry Title"
+              onChange={handleInputChange}
+              name='entryTitle'
+            />
+          </div>
+          <div className="mb-3 code">
+            <label htmlFor="Note" className="form-label">
+              Entry
+            </label>
+            <textarea
+              type="text"
+              className="form-control"
+              id="Note"
+              placeholder="Entry Content"
+              onChange={handleInputChange}
+              name='entryContent'
+              rows={10}
+            ></textarea>
+          </div>
 
-    <button type="submit" className="btn btn-primary">
-      Submit
-    </button>
-  </form>
+          <button type="submit" className="btn btn-dark">
+            Submit
+          </button>
+        </form>
+    </>
   );
 };
 

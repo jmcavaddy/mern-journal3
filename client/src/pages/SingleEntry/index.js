@@ -6,6 +6,7 @@ import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_SINGLE_ENTRY} from '../../utils/queries';
 import { EDIT_ENTRY } from "../../utils/mutations";
 
+// TODO: style this page; make sure there is a button to logout in header
 
 const SingleEntry = () => {
     const { entryId } = useParams();

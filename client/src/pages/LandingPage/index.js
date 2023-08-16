@@ -16,9 +16,18 @@ const LandingPage = () => {
 
   return (
     <>
-      <Button className='code' variant="dark" onClick={() => setShowModal(true)}>
-        Login / Sign Up
-      </Button>
+      <Navbar bg="dark" data-bs-theme="dark" className='p-3'>
+        <Navbar.Brand href="#home" className='code'>MERNJournal</Navbar.Brand>
+        <Navbar.Text className="ms-auto code">
+          your personal e-journal
+        </Navbar.Text>
+      </Navbar>
+
+      <div className="container flex-column justify-center align-center text-center p-3 code">
+        <Button variant="dark" onClick={() => setShowModal(true)}>
+          Login / Sign Up
+        </Button>
+      </div>
        
       <Modal
         size="lg"
