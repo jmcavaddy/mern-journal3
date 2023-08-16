@@ -19,7 +19,7 @@ const LandingPage = () => {
       <Navbar bg="dark" data-bs-theme="dark" className='p-3'>
         <Navbar.Brand href="#home" className='code'>MERNJournal</Navbar.Brand>
         <Navbar.Text className="ms-auto code">
-          your personal e-journal
+          an e-journal
         </Navbar.Text>
       </Navbar>
 

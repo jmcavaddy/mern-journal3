@@ -62,6 +62,7 @@ const CreateNote = () => {
     navigate(`/homepage`);
   };
 
+  // TODO: disable button OR add an error message if there isn't a title/content 
 
   return (
     <>
@@ -69,9 +70,11 @@ const CreateNote = () => {
         <Navbar.Text className='m-2'>MERNJournal</Navbar.Text>
         <Button className='ms-auto m-2' variant='danger' onClick={Auth.logout}>Logout</Button>
       </Navbar>
-      <h4 className="text-center code">Create a New Entry</h4>
+
+
+      <h4 className="text-center code m-2">Create a New Entry</h4>
       
-        <form onSubmit={handleFormSubmit} className="container code flex-column justify-content-center align-items-center" >
+        <form onSubmit={handleFormSubmit} className="container code flex-column justify-content-center align-items-center m-3" >
           <div className="mb-3 code">
             <label htmlFor="Title" className="form-label">
               Entry Title
