@@ -47,6 +47,7 @@ import Auth from '../../utils/auth';
 
   };
 
+  // TODO: add button here to navigate to landing page
   if (!userData || !userData.username) {
     return (
       <h4>
@@ -59,22 +60,17 @@ import Auth from '../../utils/auth';
     return <div>Loading...</div>;
   }
 
-  console.log(window.location)
+  // TODO: style saved entries so they are centered and have space around them; 1 column on mobile, 2 on tablet, 3 on desktop
 
   return (
     <>
-      <Navbar bg="dark" data-bs-theme="dark" className="code">
-          <Navbar.Text className='m-2'>MERNJournal</Navbar.Text>
-          <Button className='ms-auto m-2' variant='danger' onClick={Auth.logout}>Logout</Button>
-      </Navbar>
-
       <Button className="m-2 code" variant="primary" href="/newentry">New Entry</Button>
 
       <h1 className="my-4 text-center code">saved entries</h1>
 
       <Container className="code">
         <Row>
-          <Col lg="{true}">
+          <Col>
             {userData.entries.map((entry) => {
               return (
                   <Card key={entry._id} className="card mx-2" style={{ width: "18rem", backgroundColor: "lavender", padding: "5px", margin: "5px" }}>

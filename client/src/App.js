@@ -1,5 +1,3 @@
-import './App.css';
-
 import React from 'react';
 import {
   ApolloClient,
@@ -11,6 +9,7 @@ import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import Header from "./components/Header/index.js";
 
 import LandingPage from "./pages/LandingPage/index.js";
 import SingleEntry from "./pages/SingleEntry/index.js";
@@ -43,6 +42,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
+        <Header />
         <Routes>
           <Route path='/' element={<LandingPage />} />
           <Route path='/homepage' element={<Profile />} />
