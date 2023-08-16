@@ -74,8 +74,8 @@ const CreateNote = () => {
 
       <h4 className="text-center code m-2">Create a New Entry</h4>
       
-        <form onSubmit={handleFormSubmit} className="container code flex-column justify-content-center align-items-center m-3" >
-          <div className="mb-3 code">
+        <form onSubmit={handleFormSubmit} className="container code flex-column justify-content-center align-items-center" >
+          <div className="code">
             <label htmlFor="Title" className="form-label">
               Entry Title
             </label>

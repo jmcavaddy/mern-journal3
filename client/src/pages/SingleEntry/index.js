@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useQuery, useMutation } from "@apollo/client";
+import { Navbar, Button } from 'react-bootstrap';
+import Auth from '../../utils/auth.js';
 
 import { QUERY_SINGLE_ENTRY} from '../../utils/queries';
 import { EDIT_ENTRY } from "../../utils/mutations";
@@ -58,15 +60,14 @@ const SingleEntry = () => {
     }
 
     return (
+        <>
+            <Navbar bg="dark" data-bs-theme="dark" className="code">
+                <Navbar.Text className='m-2'>MERNJournal</Navbar.Text>
+                <Button className='ms-auto m-2' variant='danger' onClick={Auth.logout}>Logout</Button>
+            </Navbar>
+
         <div className="container my-1">
-            <form
-                style={{
-                    border: "2px solid blue",
-                    borderRadius: "10px",
-                    padding: "30px",
-                }}
-                onSubmit={handleFormSubmit}
-                >
+            <form onSubmit={handleFormSubmit}>
                 <div className="mb-3">
                     <label htmlFor="Title" className="form-label">
                     Entry Title
@@ -92,14 +93,17 @@ const SingleEntry = () => {
                     onChange={handleInputChange}
                     name='entryContent'
                     value={formState.entryContent}
+                    rows={10}
                     ></textarea>
                 </div>
 
-                <button type="submit" className="btn btn-primary">
+                <button type="submit" className="btn btn-dark">
                     Submit
                 </button>
                 </form>
                 </div>
+
+        </>
     );
 };
 
