@@ -59,7 +59,7 @@ const CreateNote = () => {
       console.error(e);
     }
 
-    navigate(`/homepage`);
+    window.location.assign('/homepage');
   };
 
   // TODO: disable button OR add an error message if there isn't a title/content 
